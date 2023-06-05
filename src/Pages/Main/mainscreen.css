@@ -38,7 +38,7 @@
 .header {
   grid-column: 1 / span 2;
   background-color: #24303c;
-  padding: 10px;
+  /* padding: 10px; */
   height: 7vh;
 }
 
@@ -49,6 +49,6 @@
 
 .content {
   background-color: #2e3a46;
-  padding: 10px;
-  height: 90vh;
+  /* padding: 10px; */
+  height: 95vh;
 }

@@ -1,0 +1,16 @@
+.content {
+  display: flex;
+}
+
+.side-panel {
+  width: 300px; 
+  background-color: rgba(61,75,86,255); 
+  /* padding: 10px; */
+  overflow-x: auto;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #2e3a46;
+}

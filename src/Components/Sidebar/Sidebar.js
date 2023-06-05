@@ -1,12 +1,12 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-
-import InboxIcon from "@material-ui/icons/Inbox";
-import MailIcon from "@material-ui/icons/Mail";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/Inbox';
+import MailIcon from '@material-ui/icons/Mail';
 import {
   DeviceHub as DecisionTreeIcon,
   Layers as NeuralNetworkIcon,
@@ -18,7 +18,7 @@ import {
   BarChart as ModelEvaluationIcon,
   DonutSmall as DeepLearningIcon,
   ChatBubble as NLPIcon,
-} from "@material-ui/icons";
+} from '@material-ui/icons';
 
 const drawerWidth = 20;
 
@@ -26,22 +26,24 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   drawerPaper: {
-    width: "50px",
-    backgroundColor: "#202934",
-    color: "#ffffff",
-    overflowX: "hidden",
+    width: '50px',
+    backgroundColor: '#202934',
+    color: '#ffffff',
+    overflowX: 'hidden',
   },
-
   listItem: {
-    color: "grey",
-  },
-  activeListItem: {
-    color: "#ffffff",
+    color: 'grey',
   },
   listItemIcon: {
-    color: "grey",
+    color: 'grey',
+  },
+  activeListItem: {
+    color: '#ffffff',
   },
 }));
 
@@ -55,7 +57,7 @@ export default function Sidebar() {
       classes={{
         paper: classes.drawerPaper,
       }}
-      sx={{ width: "50px" }}
+      sx={{ width: '50px' }}
     >
       <List>
         <ListItem button className={classes.listItem}>
@@ -98,6 +100,8 @@ export default function Sidebar() {
             <ModelEvaluationIcon />
           </ListItemIcon>
         </ListItem>
+      </List>
+   
         <ListItem button className={classes.listItem}>
           <ListItemIcon className={classes.listItemIcon}>
             <DeepLearningIcon />
@@ -108,15 +112,18 @@ export default function Sidebar() {
             <NLPIcon />
           </ListItemIcon>
         </ListItem>
+        <List>
         <ListItem button className={classes.listItem}>
-          <ListItemIcon className={classes.listItemIcon}>
+          <ListItemIcon>
             <InboxIcon />
           </ListItemIcon>
+         
         </ListItem>
         <ListItem button className={classes.listItem}>
-          <ListItemIcon className={classes.listItemIcon}>
+          <ListItemIcon>
             <MailIcon />
           </ListItemIcon>
+        
         </ListItem>
       </List>
     </Drawer>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./mainscreen.css";
-import { Navbar, Sidebar } from "../../Components";
+import { Content, Navbar, Sidebar } from "../../Components";
 
 function MainScreen() {
   return (
@@ -10,8 +10,8 @@ function MainScreen() {
       </div>
 
       <div>
-        <div className="header"></div>
-        <div className="content">Content</div>
+        <div className="header"><Navbar/></div>
+        <div className="content"><Content/></div>
       </div>
     </div>
   );
