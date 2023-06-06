@@ -1,6 +1,11 @@
 import React from "react";
 import FolderStructure from "../UI/FileStructure/FileStructure";
 import "./content.css";
+import SQLTerminal from "../UI/Terminal/Terminal.js";
+import CustomTable from "../TableUi/TableUI";
+import Aside from "../UI/Aside/Aside";
+import FileTree from "../UI/FileTree/FileTree.js";
+import Additional from "../UI/Top/Additional";
 
 export default function Content() {
   const items = [
@@ -52,10 +57,25 @@ export default function Content() {
       <div className="side-panel">
         <FolderStructure items={items} />
       </div>
-      <div className="main-content">
-        {/* Content for the main section */}
+      <div className="container-content">
+        <div className="upper-row">
+          <SQLTerminal />
+          <div>
+            <Aside />
+          </div>
+        </div>
+        <div className="lower-row">
+            <Additional />
+          <div className="file-table-container">
+            <div className="file-part">
+              <FileTree />
+            </div>
+            <div className="table-part">
+              <CustomTable />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
-  
 }

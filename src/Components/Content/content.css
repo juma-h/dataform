@@ -1,16 +1,52 @@
 .content {
   display: flex;
+  
 }
 
 .side-panel {
-  width: 300px; 
-  background-color: rgba(61,75,86,255); 
+  width: 300px;
+  background-color: rgba(61, 75, 86, 255);
   /* padding: 10px; */
   overflow-x: auto;
 }
 
-.main-content {
-  flex: 1;
-  padding: 20px;
-  background-color: #2e3a46;
+.container-content {
+  display: flex;
+  height:100vh;
+  width: 81vw;
+  overflow: hidden;
+  flex-direction: column;
+
 }
+.upper-row{
+  height: 50vh;
+  background-color: #2e3a46;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.lower-row {
+  background-color: #24303c;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lower-row > div {
+  flex: 1;
+}
+
+.file-table-container {
+  display: flex;
+}
+
+.file-part,
+.table-part {
+  flex: 1;
+}
+
+
+
+
+
