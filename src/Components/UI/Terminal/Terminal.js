@@ -5,27 +5,14 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 900,
+    width: 800,
     height: 300,
     backgroundColor: "#2e3a46",
     padding: theme.spacing(2),
     border: "none",
-    borderBottom:"none",
+    borderBottom: "none",
     position: "relative",
     borderRight: "0.3px solid #96a0aa",
-    "& .MuiInputBase-input": {
-      fontFamily: "monospace",
-      fontSize: "14px",
-      lineHeight: "1.5",
-      paddingLeft: theme.spacing(6),
-      position: "relative",
-    },
-    "& .MuiInputBase-input::placeholder": {
-      color: "white",
-    },
-    "& .MuiInput-underline:before ": {
-      border: "white",
-    },
   },
   lineNumbers: {
     height: "100%",
@@ -41,9 +28,7 @@ const useStyles = makeStyles((theme) => ({
     pointerEvents: "none",
     textAlign: "right",
     paddingRight: theme.spacing(1),
-  },
-  command: {
-    color: "yellow",
+    margin: "10px",
   },
   header: {
     display: "flex",
@@ -57,7 +42,13 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     fontFamily: "monospace",
     fontSize: "18px",
-
+  },
+  textField: {
+    width: "100%",
+    height: "100%",
+    color: "white",
+    paddingLeft: theme.spacing(3),
+    margin: "10px",
   },
   fileNameInput: {
     color: "#96a0aa",
@@ -70,87 +61,33 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     margin: 0,
   },
-
   saveButton: {
     margin: theme.spacing(1),
     backgroundColor: "#505d6b",
     color: "lightgrey",
     fontFamily: "Poppins",
   },
-
-  keyword: {
-    color: "#0000ff", // Blue
-  },
-  comment: {
-    color: "#008000", // Green
-    fontStyle: "italic",
-  },
-  function: {
-    color: "#800080", // Purple
-  },
-  string: {
-    color: "#a31515", // Orange
-  },
-  number: {
-    color: "#000080", // Dark Blue
-  },
-  operator: {
-    color: "#000000", // Black
-  },
-  sqlTerminal: {
-    flex: 1,
-    display: "flex",
-    flexDirection: "column",
-  },
-  sqlInput: {
-    flex: 1,
-    position: "relative",
-    marginBottom: 0,
-    border: "none",
-  },
-  sqlInputFocus: {
-    outline: "none", 
-    border: "none", 
-    boxShadow: "none", 
-  },
 }));
 
 function SQLTerminal() {
   const classes = useStyles();
-  const [sqlCommand, setSQLCommand] = useState(
-    `-- learn more on https://docs.project.co/guides/tables/
+  const [sqlCommand, setSQLCommand] = useState(`-- learn more on https://docs.project.co/guides/tables/
   SELECT country as country,
   device_type as device_type,
-  sun(revenue) as revenue,
-  sun(sessions) as sessions,
-  sun(pageviews) as pageviews
+  sum(revenue) as revenue,
+  sum(sessions) as sessions,
+  sum(pageviews) as pageviews
   
   FROM my_table
   
   WHERE country = 'FRANCE'
   
-  GROUP BY 1, 2`
-  );
+  GROUP BY 1, 2`);
+
   const handleCommand = (e) => {
     setSQLCommand(e.target.value);
-    // applySyntaxHighlighting(sqlCommand)
   };
-  // Syntax highlighting regular expressions
-  // const keywordRegex = /\b(SELECT|FROM|WHERE|GROUP BY|AS)\b/gi;
-  // const commentRegex = /--.*$/gm;
 
-  // // Function to apply syntax highlighting
-  // const applySyntaxHighlighting = (text) => {
-  //   return text
-  //     .replace(
-  //       keywordRegex,
-  //       (match) => `<span class="${classes.keyword}">${match}</span>`
-  //     )
-  //     .replace(
-  //       commentRegex,
-  //       (match) => `<span class="${classes.comment}">${match}</span>`
-  //     );
-  // };
   return (
     <div>
       <div className={classes.header}>
@@ -177,7 +114,11 @@ function SQLTerminal() {
         placeholder="Enter SQL command..."
         fullWidth
         InputProps={{
-          className: classes.root,
+          disableUnderline: true,
+          classes: {
+            root: classes.root,
+            input: classes.textField,
+          },
           startAdornment: (
             <div className={classes.lineNumbers}>
               {Array.from(Array(15).keys()).map((lineNumber) => (
@@ -185,21 +126,10 @@ function SQLTerminal() {
               ))}
             </div>
           ),
-          inputProps: {
-            className: classes.command,
-          },
         }}
         value={sqlCommand}
-        onChange={ handleCommand}
-        InputLabelProps={{
-          classes: {
-            root: classes.command,
-            focused: classes.command,
-          },
-        }}
-
+        onChange={handleCommand}
       />
-  
     </div>
   );
 }

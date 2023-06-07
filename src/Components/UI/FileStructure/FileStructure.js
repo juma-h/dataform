@@ -160,18 +160,21 @@ const useStyles = makeStyles((theme) => ({
     color: "#96a0aa",
   },
     folderItem: {
-    paddingLeft: theme.spacing(4),
+    paddingLeft: theme.spacing(2),
     // border :"solid pink",
     height:"3em",
     color:"#758089",
     fontWeight:700,
+    alignItems:"baseline"
   },
     headerText: {
     color: "#fff",
     fontSize: "24px",
     fontWeight: "bold",
     fontFamily: "Poppins, sans-serif",
-    paddingLeft:"30px",
+    paddingLeft:"1em",
+  
+ 
   },
 
   listItem: {
@@ -205,10 +208,7 @@ const useStyles = makeStyles((theme) => ({
   refreshIcon: {
     color: theme.palette.grey[500],
   },
-  eyeIcon: {
-    color: "grey",
-    paddingLeft: "1em",
-  },
+
 }));
 const folderData = [
   { name: "Config", label: "dataform" },
@@ -251,7 +251,7 @@ const FileTreeItem = ({ item }) => {
                 <ListItemIcon>
                 <button
                 className="button-18"
-                style={{ backgroundColor: button.color, width:"50px"}}
+                style={{ backgroundColor: button.color, width:"4em"}}
               >
                 {button.name}
               </button>

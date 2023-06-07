@@ -10,6 +10,7 @@ import AsideAccordion from '../Accordion/Accordion.js';
 import Snackbars from '../SnackBar/Snackbar.js';
 import "../FileStructure/filestructure.css";
 
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -61,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#2e3a46",
     overflowY: "yes", 
     maxHeight: "400px",
+    width:500
   },
   appbarAcc: {
     backgroundColor: "#2e3a46",
@@ -127,6 +129,10 @@ export default function NavTabs() {
       <TabPanel value={value} index={1}>
         Documentation PAGE
       </TabPanel>
+      <div>
+        <button className='btn btn-secondary m-2'>Execute Query</button>
+        <button className="btn btn-primary">Run this Node</button>
+      </div>
     </div>
   );
 }

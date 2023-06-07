@@ -18,10 +18,6 @@ export default function Content() {
             { name: "SQL", label: "dataset_1", color: "#94a66c" },
             { name: "SQL", label: "dataset_2_with_ref", color: "#94a66c" },
           ],
-          // children: [
-          //   { name: "dataset_1", children: [] },
-          //   { name: "dataset_2_with_ref", children: [] },
-          // ],
         },
         {
           name: "2_advanced_examples",
@@ -29,10 +25,6 @@ export default function Content() {
             { name: "SQL", label: "dataset_3_increase", color: "#94a66c" },
             { name: "JS", label: "dataset_4_increase", color: "#fcd672" },
           ],
-          // children: [
-          //   { name: "dataset_3_increase", children: [] },
-          //   { name: "dataset_4_increase", children: [] },
-          // ],
         },
         {
           name: "3_operations_and_assignments",
@@ -40,10 +32,6 @@ export default function Content() {
             { name: "ops", label: "grant_access", color: "#538a97" },
             { name: "assert", label: "simple_assertion", color: "#c89375" },
           ],
-          // children: [
-          //   { name: "grant_access", children: [] },
-          //   { name: "simple_assertion", children: [] },
-          // ],
         },
       ],
     },
@@ -65,7 +53,7 @@ export default function Content() {
           </div>
         </div>
         <div className="lower-row">
-            <Additional />
+          <Additional />
           <div className="file-table-container">
             <div className="file-part">
               <FileTree />

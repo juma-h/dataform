@@ -10,26 +10,27 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     backgroundColor:"#2e3a46",
-
+    textAlign:"left",
+    fontWeight:"bold",
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     flexBasis: "33.33%",
     flexShrink: 0,
-    color:"grey"
+    color:"#808992"
     
     
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
-    color:"grey",
+    color:"lightgrey",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     width: "24px",
     height: "24px",
-    borderRadius: "50%",
-    backgroundColor: "lightgrey",
+    borderRadius: "40%",
+    backgroundColor: "#757f87",
     marginLeft: "auto",
   },
   accordion: {
