@@ -12,67 +12,88 @@ const styles = (theme) => ({
   root: {
     backgroundColor: "#24303c",
     color: "white",
-    border: "1px solid lightgrey" ,
-    borderTop:"none"
+    border: "1px solid lightgrey",
+    borderTop: "none",
+    width: "100%",
+    fontFamily: "Poppins",
+    fontWeight:'bold',
+    overflowY: "scroll",
   },
   headerCell: {
     color: "white",
     border: "1px solid lightgrey",
-        // borderTop:"none"
+    fontWeight: "bold",
+    margin: "3px",
   },
+
   headerMergedCell: {
     display: "flex",
     color: "white",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    width:"90%" ,
+    border: "1px solid lightgrey",
+    padding:"1em",
+    fontSize:"1em",
+    marginRight:"15em"
+    
   },
   deleteButton: {
-    color: "white"
+    color: "white",
   },
   cell: {
-    border: "1px solid lightgrey" ,
-    color:"white", 
-    borderTop:"none"
-  }
+    border: "1px solid lightgrey",
+    color: "white",
+    fontFamily: "Poppins",
+    fontWeight:'medium',
+    borderTop: "none",
+    width: "50%",
+    height: "2em", // Adjust the cell height as desired
+  },
+  tableBody: {
+    overflowY: "auto", // Enable vertical scrolling
+    maxHeight: "calc(100vh - 300px)", // Adjust the max height as needed
+  },
 });
 
 const data = [
   { menu: "menu 1", field: "date", type: "date" },
-  { menu: "menu 2", field: "device id", type: "device something" },
-  { menu: "menu 3", field: "country", type: "country" },
-  { menu: "menu 4", field: "sessions", type: "sessions" },
-  { menu: "menu 5", field: "revenue", type: "rev" }
+  { menu: "menu 2", field: "device_id", type: "character varying" },
+  { menu: "menu 3", field: "country", type: "character varying" },
+  { menu: "menu 4", field: "sessions", type: "integer" },
+  { menu: "menu 5", field: "revenue", type: "integer" },
 ];
 
 const CustomTable = ({ classes }) => (
-  <Table className={classes.root}>
-    <TableHead>
-      <TableRow>
-        <TableCell className={classes.headerMergedCell} colSpan={2}>
-          <div>
-            {" "}
-            <button className="button-18">View</button>
-            dataform_from_datset
-          </div>
-          <div>
-            <span>X</span>
-          </div>
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell className={classes.headerCell}>Field</TableCell>
-        <TableCell className={classes.headerCell}>Type</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {data.map((row, index) => (
-        <TableRow key={index}>
-          <TableCell className={classes.cell}>{row.field}</TableCell>
-          <TableCell className={classes.cell}>{row.type}</TableCell>
+  <>
+    <div className={classes.headerMergedCell}>
+      <div>
+        <button className="button-18">View</button>
+        dataform_from_dataset
+      </div>
+      <div>
+        <span>X</span>
+      </div>
+    </div>
+
+    <Table className={classes.root}>
+
+      <TableHead>
+        <TableRow>
+          <TableCell className={classes.headerCell}>Field</TableCell>
+          <TableCell className={classes.headerCell}>Type</TableCell>
         </TableRow>
-      ))}
-    </TableBody>
-  </Table>
+      </TableHead>
+      <TableBody>
+        {data.map((row, index) => (
+          <TableRow key={index}>
+            <TableCell className={classes.cell}>{row.field}</TableCell>
+            <TableCell className={classes.cell}>{row.type}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </>
 );
 
 export default withStyles(styles)(CustomTable);

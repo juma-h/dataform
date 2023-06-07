@@ -9,29 +9,26 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 200,
+    border: "none",
     "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        border: "none", 
-        paddingRight: theme.spacing(1),
-      },
+      border: "none",
       "&.Mui-focused fieldset": {
-        borderColor: "green", // Change the outline border color when active (focused)
-      },
-      "& .MuiSelect-icon": {
-        color: "lightgray",
-        right: theme.spacing(1),
+        borderColor: "none",
       },
     },
   },
   select: {
-    height: "3em",
-
+    height: "2em",
   },
-  formLabel:{
-    fontFamily:"Geologica", 
-    color:"#737e86",
-    
-  }
+  formLabel: {
+    fontFamily: "Geologica",
+    color: "#737e86",
+    marginBottom: "10px",
+    transform: "translate(14px, 12px) scale(1)",
+    background: "#24303c",
+    paddingLeft: "4px",
+    paddingRight: "4px",
+  },
 }));
 
 export default function SelectComponent() {
@@ -45,7 +42,10 @@ export default function SelectComponent() {
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label" className={classes.formLabel}>
+        <InputLabel
+          id="demo-simple-select-outlined-label"
+          className={classes.formLabel}
+        >
           Project Name
         </InputLabel>
         <Select

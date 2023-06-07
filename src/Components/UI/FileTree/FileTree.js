@@ -14,12 +14,13 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(1),
+
     
   },
   listItemText: {
     color: theme.palette.grey[500],
     margin:"10px",
-    paddingLeft:"1em"
+  
   },
   listItemHeader:{
     color: theme.palette.grey[500],
@@ -33,15 +34,16 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 0.5,
   },
   refreshText: {
-    marginLeft: theme.spacing(1),
-    color: "grey",
+    marginLeft: theme.spacing(2),
+    color: "#7e8991",
+    fontFamily:"Poppins"
   },
   refreshIcon: {
     color: theme.palette.grey[500],
   },
   eyeIcon: {
-    color: "grey",
-    paddingLeft:"1em"
+    color: "white",
+    paddingLeft:"em"
   },
 }));
 

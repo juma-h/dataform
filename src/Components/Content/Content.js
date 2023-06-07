@@ -55,7 +55,7 @@ export default function Content() {
         <div className="lower-row">
           <Additional />
           <div className="file-table-container">
-            <div className="file-part">
+            <div className="file-part" >
               <FileTree />
             </div>
             <div className="table-part">

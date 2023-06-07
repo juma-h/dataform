@@ -8,7 +8,6 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
     minWidth: 200,
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
@@ -21,12 +20,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   select: {
-    height: "3em",
+    width: "100%",
+    height: "2.3em",
     color: "#fff",
   },
   formLabel: {
     fontFamily: "Geologica",
-    color: "#fff",
+    color: "#737e86",
+    marginBottom: "10px",
+    transform: "translate(14px, 12px) scale(1)",
+    background: "#24303c",
+    paddingLeft: "4px",
+    paddingRight: "4px",
   },
 }));
 
@@ -39,29 +44,30 @@ export default function OutlineSelect() {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel
-          id="demo-simple-select-outlined-label"
+          htmlFor="outlined-age-native-simple"
           className={classes.formLabel}
         >
           Development
         </InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          native
           value={development}
           onChange={handleChange}
-          label="Development"
+          label="Age"
+          inputProps={{
+            name: "age",
+            id: "outlined-age-native-simple",
+          }}
           className={classes.select}
           IconComponent={ArrowDropDownIcon}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <option aria-label="None" value="" />
+          <option value={10}>Ten</option>
+          <option value={20}>Twenty</option>
+          <option value={30}>Thirty</option>
         </Select>
       </FormControl>
     </div>

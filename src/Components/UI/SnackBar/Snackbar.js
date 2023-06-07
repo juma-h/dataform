@@ -7,10 +7,10 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing(2),
     backgroundColor: 'transparent',
     color: 'orange',
-    fontWeight:"thin"
+    fontWeight:"thin",
+    padding:"14px",
   },
   icon: {
     marginRight: theme.spacing(1),

@@ -14,7 +14,7 @@ import OutlineSelect from "../UI/Select/OutlineSelect";
 const useStyles = makeStyles((theme) => ({
   root: {
     // flexGrow: 1,
-    height: "10%",
+    height: "100%",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -31,11 +31,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    // padding: theme.spacing(2),
+    padding: theme.spacing(4),
+    // border: "solid green",
+    height:"9vh"
+
   },
   selectContainer: {
     display: "flex",
-    alignItems: "center",
+    flexDirection:"row",
     marginRight: theme.spacing(2),
   },
   navBtn: {
@@ -46,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "capitalize",
     display: "flex",
     alignItems: "center",
+    height:"2.5em"
   },
   icon: {
     marginRight: theme.spacing(1),
@@ -76,10 +80,10 @@ export default function Navbar() {
       <AppBar position="static" className={classes.appBar}>
         {/* <Toolbar> */}
         <div className={classes.header}>
-          <div className={classes.selectContainer}>
+          {/* <div className={classes.selectContainer}> */}
             <SelectComponent />
             <OutlineSelect />
-          </div>
+          {/* </div> */}
           <Button
             variant="contained"
             color="primary"

@@ -62,10 +62,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#2e3a46",
     overflowY: "yes", 
     maxHeight: "400px",
-    width:500
+    width:500,
+    marginLeft:"5px"
   },
   appbarAcc: {
     backgroundColor: "#2e3a46",
+    boxShadow: "none", 
   },
   indicator: {
     backgroundColor: "grey",
@@ -130,8 +132,8 @@ export default function NavTabs() {
         Documentation PAGE
       </TabPanel>
       <div>
-        <button className='btn btn-secondary m-2'>Execute Query</button>
-        <button className="btn btn-primary">Run this Node</button>
+        <button className='btn btn-secondary m-2 p-2' style={{fontSize:"14px"}}>Execute Query</button>
+        <button className="btn btn-primary m-2 p-2" style={{fontSize:"14px"}}>Run this Node</button>
       </div>
     </div>
   );

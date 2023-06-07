@@ -12,13 +12,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:"#2e3a46",
     textAlign:"left",
     fontWeight:"bold",
+
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     flexBasis: "33.33%",
     flexShrink: 0,
-    color:"#808992"
-    
+    color:"#808992",
+    fontWeight:"bold"
     
   },
   secondaryHeading: {
@@ -38,7 +39,13 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "1px solid rgba(0, 0, 0, 0.12)", 
     backgroundColor:"#2e3a46",
     color:"white",
+  
   },
+  accordionDetails:{
+    // fontWeight:"bold"
+  },
+
+  
   expanded: {
     margin: 0, 
   },
@@ -73,7 +80,7 @@ export default function AsideAccordion() {
           </Typography>
         </AccordionSummary>
 
-         <AccordionDetails>
+         <AccordionDetails className={classes.accordionDetails}>
           <Typography>
             Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
    
