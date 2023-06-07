@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     backgroundColor: 'transparent',
     color: 'orange',
+    fontWeight:"thin"
   },
   icon: {
     marginRight: theme.spacing(1),

@@ -59,6 +59,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: "#2e3a46",
+    overflowY: "yes", 
+    maxHeight: "400px",
   },
   appbarAcc: {
     backgroundColor: "#2e3a46",
@@ -104,7 +106,7 @@ export default function NavTabs() {
           onChange={handleChange}
           aria-label="nav tabs example"
           classes={{
-            indicator: classes.indicator, // Apply custom styles for the indicator
+            indicator: classes.indicator, 
           }}
         >
           <LinkTab

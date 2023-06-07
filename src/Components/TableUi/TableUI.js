@@ -12,11 +12,13 @@ const styles = (theme) => ({
   root: {
     backgroundColor: "#24303c",
     color: "white",
-    border: "1px solid lightgrey" 
+    border: "1px solid lightgrey" ,
+    borderTop:"none"
   },
   headerCell: {
     color: "white",
-    border: "1px solid lightgrey"
+    border: "1px solid lightgrey",
+        // borderTop:"none"
   },
   headerMergedCell: {
     display: "flex",
@@ -30,6 +32,7 @@ const styles = (theme) => ({
   cell: {
     border: "1px solid lightgrey" ,
     color:"white", 
+    borderTop:"none"
   }
 });
 

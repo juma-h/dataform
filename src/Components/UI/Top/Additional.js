@@ -7,7 +7,7 @@ const styles = (theme) => ({
   root: {
     backgroundColor: "#24303c",
     color: "white",
-    border: "1px solid lightgrey",
+    borderBottom: "0.3px solid lightgrey",
     padding: "1em",
     display: "flex",
     alignItems: "center",

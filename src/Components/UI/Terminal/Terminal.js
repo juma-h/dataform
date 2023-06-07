@@ -6,10 +6,11 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 900,
-    // height: ,
+    height: 300,
     backgroundColor: "#2e3a46",
     padding: theme.spacing(2),
     border: "none",
+    borderBottom:"none",
     position: "relative",
     borderRight: "0.3px solid #96a0aa",
     "& .MuiInputBase-input": {
@@ -21,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .MuiInputBase-input::placeholder": {
       color: "white",
+    },
+    "& .MuiInput-underline:before ": {
+      border: "white",
     },
   },
   lineNumbers: {
@@ -39,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(1),
   },
   command: {
-    color: "#fff",
+    color: "yellow",
   },
   header: {
     display: "flex",
@@ -101,13 +105,13 @@ const useStyles = makeStyles((theme) => ({
   sqlInput: {
     flex: 1,
     position: "relative",
-    marginBottom: 0, /* Remove bottom margin */
+    marginBottom: 0,
     border: "none",
   },
   sqlInputFocus: {
-    outline: "none", /* Remove default focus outline */
-    border: "none", /* Remove default border */
-    boxShadow: "none", /* Remove default box shadow */
+    outline: "none", 
+    border: "none", 
+    boxShadow: "none", 
   },
 }));
 

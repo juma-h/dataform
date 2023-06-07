@@ -4,10 +4,10 @@
 }
 
 .side-panel {
-  width: 300px;
+  width: 350px;
   background-color: rgba(61, 75, 86, 255);
   /* padding: 10px; */
-  overflow-x: auto;
+
 }
 
 .container-content {
