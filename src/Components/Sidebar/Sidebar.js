@@ -60,14 +60,16 @@ const useStyles = makeStyles((theme) => ({
   },
   thirdDiv: {
     display: "flex",
+    flex: 1,
     flexDirection: "column",
     justifyContent: "space-between",
     paddingBottom: theme.spacing(1),
     paddingTop: theme.spacing(1),
   },
+
   hr: {
     borderTop: "1px solid lightgrey",
-    margin:"5px",
+    margin: "5px",
     padding: 0,
   },
 }));
@@ -84,7 +86,11 @@ export default function Sidebar() {
       }}
       sx={{ width: "50px" }}
     >
-      <div className={classes.secondDiv}>
+      {/* <div className={classes.secondDiv}>
+
+      </div> */}
+
+      <div className={classes.firstDiv}>
         <List>
           <ListItem button className={classes.listItem}>
             <ListItemIcon className={classes.listItemIcon}>
@@ -97,9 +103,6 @@ export default function Sidebar() {
             </ListItemIcon>
           </ListItem>
         </List>
-      </div>
-
-      <div className={classes.firstDiv}>
         <hr className={classes.hr} />
         <List>
           <ListItem button className={classes.listItem}>
@@ -113,6 +116,7 @@ export default function Sidebar() {
             </ListItemIcon>
           </ListItem>
         </List>
+        <hr className={classes.hr} />
         <div>
           <List>
             <ListItem button className={classes.listItem}>
@@ -136,36 +140,47 @@ export default function Sidebar() {
               </ListItemIcon>
             </ListItem>
           </List>
-        
-          
         </div>
+        <hr className={classes.hr} />
       </div>
 
-      <hr className={classes.hr} />
-
       <div className={classes.thirdDiv}>
-        <List>
-        <List>
+        <div>
+          <List>
             <ListItem button className={classes.listItem}>
               <ListItemIcon className={classes.listItemIcon}>
                 <DeepLearningIcon />
               </ListItemIcon>
             </ListItem>
           </List>
+        </div>
+        <div
+          style={{
+            height: "100%",
+            display: "flex",
+            flexDirection: "column-reverse",
+            paddingBottom: "1em",
+          }}
+        >
+                    <ListItem button className={classes.listItem}>
+            <ListItemIcon>
+              <Avatar
+                alt="Michelle Juma"
+                src="https://avatars.dicebear.com/v2/female/2aa9525531c34ab1919876c534225f43.svg"
+                className={classes.small}
+              >
+                {/* MJ */}
+              </Avatar>
+            </ListItemIcon>
+          </ListItem>
           <ListItem button className={classes.listItem}>
             <ListItemIcon className={classes.listItemIcon}>
               <NLPIcon />
             </ListItemIcon>
           </ListItem>
 
-          <ListItem button className={classes.listItem}>
-            <ListItemIcon>
-              <Avatar alt="Michelle Juma"  src="https://avatars.dicebear.com/v2/female/2aa9525531c34ab1919876c534225f43.svg" className={classes.small}>
-                {/* MJ */}
-              </Avatar>
-            </ListItemIcon>
-          </ListItem>
-        </List>
+
+        </div>
       </div>
     </Drawer>
   );
