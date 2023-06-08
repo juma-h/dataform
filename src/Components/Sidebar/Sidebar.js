@@ -160,8 +160,8 @@ export default function Sidebar() {
 
           <ListItem button className={classes.listItem}>
             <ListItemIcon>
-              <Avatar alt="Michelle Juma" className={classes.small}>
-                MJ
+              <Avatar alt="Michelle Juma"  src="https://avatars.dicebear.com/v2/female/2aa9525531c34ab1919876c534225f43.svg" className={classes.small}>
+                {/* MJ */}
               </Avatar>
             </ListItemIcon>
           </ListItem>

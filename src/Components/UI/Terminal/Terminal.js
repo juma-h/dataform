@@ -17,18 +17,24 @@ const useStyles = makeStyles((theme) => ({
   lineNumbers: {
     height: "100%",
     position: "absolute",
-    left: 0,
-    top: theme.spacing(2),
-    bottom: theme.spacing(2),
-    width: theme.spacing(4),
+    // left: theme.spacing(2),
+    //  top: theme.spacing(2),
+    // bottom: theme.spacing(2),
+    width: "20px",
+  
     color: "#96a0aa",
-    fontFamily: "monospace",
-    fontSize: "14px",
-    lineHeight: "1.2",
+    fontSize: "16px",
+     lineHeight: "1.5",
     pointerEvents: "none",
-    textAlign: "right",
     paddingRight: theme.spacing(1),
-    margin: "10px",
+    // margin: "10px",
+    flex: "0 0 auto",
+    marginRight: "10px",
+    // backgroundColor: "#2e3a46",
+    // padding: "10px",
+    fontFamily: "Consolas, monospace",
+    textAlign: "right",
+    userSelect: "none",
   },
   header: {
     display: "flex",
@@ -67,11 +73,61 @@ const useStyles = makeStyles((theme) => ({
     color: "lightgrey",
     fontFamily: "Poppins",
   },
+  container: {
+    position: "relative",
+    height: "300px",
+    display: "flex",
+  },
+  textarea: {
+    flex: "1 1 auto",
+    position: "absolute",
+    color: "transparent",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    background: "transparent",
+    border: "none",
+    resize: "none",
+    outline: "none",
+    zIndex: 2,
+    fontFamily: "Consolas, monospace",
+    paddingLeft: theme.spacing(3),
+    margin: "10px",
+  },
+  editor: {
+    display: "flex",
+    flexDirection: "row",
+    flex: "1 1 auto",
+    position: "absolute",
+    backgroundColor: "#2e3a46",
+    color: "white",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    padding: "10px",
+    fontFamily: "Consolas, monospace",
+    zIndex: 1,
+    textAlign: "left",
+    lineHeight:1.5
+  },
+  command: {
+    color: "#6a6b93",
+    // flex: "1 1 auto",
+    overflowY: "auto",
+    lineHeight: "1.5",
+    // paddingRight: theme.spacing(3),
+    // paddingTop: theme.spacing(2),
+    // paddingBottom: theme.spacing(2),
+  },
 }));
 
 function SQLTerminal() {
   const classes = useStyles();
-  const [sqlCommand, setSQLCommand] = useState(`-- learn more on https://docs.project.co/guides/tables/
+
+  const [sqlQuery, setSqlQuery] =
+    useState(`-- learn more on https://docs.project.co/guides/tables/
   SELECT country as country,
   device_type as device_type,
   sum(revenue) as revenue,
@@ -84,8 +140,52 @@ function SQLTerminal() {
   
   GROUP BY 1, 2`);
 
-  const handleCommand = (e) => {
-    setSQLCommand(e.target.value);
+  const handleInputChange = (e) => {
+    setSqlQuery(e.target.value);
+  };
+
+  const renderHighlightedText = () => {
+    const commands = [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "GROUP BY",
+      "ORDER BY",
+      "JOIN",
+      "LEFT JOIN",
+      "RIGHT JOIN",
+      "INNER JOIN",
+      "OUTER JOIN",
+      "ON",
+      "AS",
+      "AND",
+      "OR",
+      "SUM",
+    ];
+  
+    const colors = ["purple", "yellow", "lightgreen"];
+  
+    const formattedQuery = sqlQuery.replace(/\n/g, "<br>");
+  
+    let highlightedQuery = formattedQuery;
+    commands.forEach((command) => {
+      const regex = new RegExp(`\\b(${command})\\b`, "gi");
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      highlightedQuery = highlightedQuery.replace(
+        regex,
+        `<span class="${classes.command}" style="color: ${randomColor};">$&</span>`
+      );
+    });
+  
+    return { __html: highlightedQuery };
+  };
+  
+
+
+  //incremental line numbers as you type
+  const renderLineNumbers = () => {
+    const lines = sqlQuery.split("\n");
+    return lines.map((_, index) => <div key={index + 1}>{index + 1}</div>);
   };
 
   return (
@@ -95,7 +195,7 @@ function SQLTerminal() {
           fullWidth
           className={classes.fileName}
           variant="filled"
-          value="definitions/1_simple_examples/datasets.sql"
+          value="definitions/1_simple_examples/dataset_2_with_ref_.sql"
           InputProps={{
             disableUnderline: true,
             classes: {
@@ -104,32 +204,25 @@ function SQLTerminal() {
             },
           }}
         />
-
         <Button variant="contained" className={classes.saveButton}>
           Save
         </Button>
       </div>
-      <TextField
-        multiline
-        placeholder="Enter SQL command..."
-        fullWidth
-        InputProps={{
-          disableUnderline: true,
-          classes: {
-            root: classes.root,
-            input: classes.textField,
-          },
-          startAdornment: (
-            <div className={classes.lineNumbers}>
-              {Array.from(Array(15).keys()).map((lineNumber) => (
-                <div key={lineNumber}>{lineNumber + 1}</div>
-              ))}
-            </div>
-          ),
-        }}
-        value={sqlCommand}
-        onChange={handleCommand}
-      />
+
+      <div className={classes.root}>
+        <div className={classes.editor}>
+          <div className={classes.lineNumbers}>{renderLineNumbers()}</div>
+          <textarea
+            className={classes.textarea}
+            value={sqlQuery}
+            onChange={handleInputChange}
+          />
+          <div
+            style={{ marginLeft: "30px" }}
+            dangerouslySetInnerHTML={renderHighlightedText()}
+          ></div>
+        </div>
+      </div>
     </div>
   );
 }
