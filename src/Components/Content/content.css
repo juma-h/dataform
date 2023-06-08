@@ -39,6 +39,7 @@
 
 .file-table-container {
   display: flex;
+  width: 100%;
 }
 
 .file-part{

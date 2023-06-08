@@ -3,5 +3,6 @@
     overflow-y: auto;
     height:50vh;
     border-left: solid 0.1px grey;
-    
+    padding-bottom: 10px;
+
 }
