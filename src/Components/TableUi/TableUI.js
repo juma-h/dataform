@@ -12,7 +12,8 @@ const styles = (theme) => ({
   root: {
     backgroundColor: "#24303c",
     color: "white",
-    border: "1px solid lightgrey",
+    borderLeft: "solid 0.1px grey",
+    borderRight: "solid 0.1px grey",
     borderTop: "none",
     width: "100%",
     fontFamily: "Poppins",
@@ -21,7 +22,7 @@ const styles = (theme) => ({
   },
   headerCell: {
     color: "white",
-    border: "1px solid lightgrey",
+    border: "0.1px solid grey",
     fontWeight: "bold",
     margin: "3px",
   },
@@ -32,7 +33,8 @@ const styles = (theme) => ({
     flexDirection: "row",
     justifyContent: "space-between",
     width:"90%" ,
-    border: "1px solid lightgrey",
+    borderLeft: "solid 0.1px grey",
+    borderRight: "solid 0.1px grey",
     padding:"1em",
     fontSize:"1em",
     marginRight:"15em"
@@ -42,7 +44,7 @@ const styles = (theme) => ({
     color: "white",
   },
   cell: {
-    border: "1px solid lightgrey",
+    border: "0.1px solid grey",
     color: "white",
     fontFamily: "Poppins",
     fontWeight:'medium',

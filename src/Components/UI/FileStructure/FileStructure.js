@@ -156,14 +156,14 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    backgroundColor: "#2e3a46",
+    backgroundColor: "#3d4b56",
     color: "#96a0aa",
   },
     folderItem: {
     paddingLeft: theme.spacing(2),
     // border :"solid pink",
     height:"3em",
-    color:"#758089",
+    color:"#7d8993",
     fontWeight:700,
     alignItems:"baseline"
   },
@@ -189,9 +189,10 @@ const useStyles = makeStyles((theme) => ({
     // color: theme.palette.grey[500],
     color:"#758089",
     fontSize:"50px",
+    fontWeight:900
   },
   listItemHeader: {
-    color: theme.palette.grey[500],
+    color: "#859098",
     fontWeight:600,
   },
   refreshContainer: {
@@ -228,7 +229,7 @@ const FileTreeItem = ({ item }) => {
     <React.Fragment>
       <ListItem button onClick={handleExpandClick} className={classes.listItem}>
         <ListItemIcon>
-          <FolderIcon style={{ color: "grey" }} />
+          <FolderIcon style={{ color: "#859098" }} />
         </ListItemIcon>
         <ListItemText
           primary={item.name}
@@ -287,7 +288,7 @@ const FolderStructure = ({ items }) => {
           />
         </ListItem>
       ))}
-      <List>
+      <List style={{fontSize:"10px"}}>
         {items.map((item, index) => (
           <FileTreeItem key={index} item={item} />
         ))}

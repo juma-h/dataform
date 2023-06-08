@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#2e3a46",
     overflowY: "yes", 
     maxHeight: "400px",
-    width:500,
+    width:600,
     marginLeft:"5px"
   },
   appbarAcc: {

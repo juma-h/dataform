@@ -1,5 +1,7 @@
 .aside-div{
     overflow-x: hidden;
     overflow-y: auto;
+    height:50vh;
+    border-left: solid 0.1px grey;
     
 }

@@ -14,8 +14,6 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(1),
-
-    
   },
   listItemText: {
     color: theme.palette.grey[500],

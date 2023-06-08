@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     borderBottom: "none",
     position: "relative",
-    borderRight: "0.3px solid #96a0aa",
   },
   lineNumbers: {
     height: "100%",
@@ -41,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     marginBottom: theme.spacing(0),
     borderBottom: "0.3px solid #96a0aa",
-    borderRight: "0.3px solid #96a0aa",
   },
   fileName: {
     backgroundColor: "transparent",
@@ -163,7 +161,7 @@ function SQLTerminal() {
       "SUM",
     ];
   
-    const colors = ["purple", "yellow", "lightgreen"];
+    const colors = ["purple", "yellow", "lightgreen", "#556c92"];
   
     const formattedQuery = sqlQuery.replace(/\n/g, "<br>");
   
